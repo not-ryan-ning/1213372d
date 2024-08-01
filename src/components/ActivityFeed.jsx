@@ -10,7 +10,6 @@ const ActivityFeed = ({ archived }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-
   // fetch new calls when archive button clicked
   useEffect(() => {
     setLoading(true);
@@ -133,13 +132,13 @@ const ActivityFeed = ({ archived }) => {
   return (
     <div className="container">
       {/* conditionally render error messages */}
-      {error && <div className="alert alert-danger">{error.message}</div>} 
+      {error && <div className="alert alert-danger">{error.message}</div>}
       <div className="row">
         <div className="col-sm">
           <div className="activity-feed">
             <ArchiveAll onArchiveAll={handleArchiveAll} onUnarchiveAll={handleUnarchiveAll} isArchivedFeed={archived} />
             {/* conditionally render loading message */}
-            {loading && <div>Loading...</div>} 
+            {loading && <div>Loading...</div>}
             {Object.keys(groupedCalls).map(date => (
               <div key={date}>
                 <div className="date-container">
